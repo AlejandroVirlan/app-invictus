@@ -1,0 +1,24 @@
+<ul *ngIf="paginas?.length > 0" class="pagination">
+
+    <li class="page-item" *ngIf="paginador.number > 0">
+        <a class="page-link" [routerLink]="['/socios']" [queryParams]="{page: paginador.number-1, size: 4}">&laquo;</a>
+    </li>
+
+    <li [ngClass]="paginador.first?'disabled page-item': 'page-item'">
+        <a class="page-link" [routerLink]="['/socios']" [queryParams]="{page: 0, size: 4}">Primera</a>
+    </li>
+
+    <li class="page-item" *ngFor="let pagina of paginas" [ngClass]="pagina-1 == paginador.number?'active':''">
+        <span class="page-link" *ngIf="pagina-1 == paginador.number">{{pagina}}</span>
+        <a class="page-link" *ngIf="pagina-1 != paginador.number" [routerLink]="['/socios']" [queryParams]="{page: pagina-1, size: 4}">{{pagina}}</a>
+    </li>
+    <!-- El if no funciona bien porque siempre piensa que es paginador.last, y al parecer hay algo en el flujo que hace que no sea reactivo, y no detecte que no es la última-->
+    <li [ngClass]="paginador.last?'disabled page-item': 'page-item'">
+        <a class="page-link" [routerLink]="['/socios']" [queryParams]="{page: paginador.totalPages-1, size: 4}">Última</a>
+    </li>
+    <!-- El if no funciona bien porque al parecer siempre se cumple la condición al ser un string y por lo tanto el botón nunca desaparece, pero no sé como convertir esa condición en number,
+    porque sino ni la lee y nunca se cumple la condición -->
+    <li class="page-item" *ngIf="'paginador.number' < 'paginador.totalPages-1'">
+        <a class="page-link" [routerLink]="['/socios']" [queryParams]="{page: paginador.number+1, size: 4}">&raquo;</a>
+    </li>
+</ul>

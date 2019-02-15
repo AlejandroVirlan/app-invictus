@@ -1,0 +1,48 @@
+<div class="card border-primary text-primary mb-3">
+    <div class="card-header">Socios</div>
+    <div class="card-body">
+        <h5 class="card-title">Listado de socios</h5>
+
+        <div *ngIf="socios?.length == 0" class="alert alert-info">
+            No hay usuarios registrados en la base de datos.
+        </div>
+        <table class="table table-bordered table-striped" *ngIf="socios?.length>0">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>DNI</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Móvil</th>
+                    <th>Foto</th>
+                    <th>Usuario</th>
+                    <th>Email</th>
+                    <th>Edición</th>
+                    <th>Borrado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let socio of socios">
+                    <ng-container *ngIf="socio.usuario.enabled">
+                        <td>{{ socio.id }}</td>
+                        <td>{{ socio.dni }}</td>
+                        <td>{{ socio.nombre }}</td>
+                        <td>{{ socio.apellido1 }} {{socio.apellido2}}</td>
+                        <td>{{ socio.movil }}</td>
+                        <td>{{ socio.foto }}</td>
+                        <td>{{socio.usuario.username}}</td>
+                        <td>{{socio.usuario.email}}</td>
+                        <td>
+                            <button type="button" name="button" [routerLink]="['/socios/form', socio.id]" class="btn btn-primary">Editar</button>
+                        </td>
+                        <td>
+                            <button type="button" name="elminar" (click)='delete(socio)' class="btn btn-danger btn-sm">Eliminar</button>
+                        </td>
+                    </ng-container>
+                </tr>
+
+            </tbody>
+        </table>
+        <app-paginator *ngIf="paginador" [paginador]="paginador"></app-paginator>
+    </div>
+</div>

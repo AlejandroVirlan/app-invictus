@@ -1,27 +1,68 @@
-# Invictus2App
+# App Invictus en desarrollo con Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+Este proyecto en desarrollo consiste en la parte cliente que conecta con la API REST en Spring    
+para una asociación de juegos de mesa, con el fin de tener una aplicación desarrollada en Angular    
+por la parte del cliente que se conecte a esta API realizada con Spring Framework 5.
 
-## Development server
+Este proyecto ha sido generado con [Angular CLI](https://github.com/angular/angular-cli) versión 7.0.6.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### FUNCIONES
+---
+* Tener un control de los socios que se han registrado e inician sesión.
+* Poder controlar las reservas de los juegos de mesa que se soliciten.
+* Tener un listado del libro de socios.
+* Revisar los gastos y beneficios generados.
 
-## Code scaffolding
+### IMPLEMENTACIONES
+---
+* Login de socios con JWT (Json Web Token)
+* Logout
+* Registro de socios
+* CRUD de socios (que implica también a usuarios)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### INSTRUCCIONES
+---
+Antes de ejecutar el proyecto, realizar todos los pasos anteriores para el servidor [(API REST en Spring Framework 5)](https://github.com/angular/angular-cli/blob/master/README.md).   
+Una vez que se haya realizado todo en la parte del servidor, hay que asegurarse antes de empezar, de que hay que tener instalado   
+[Node.js](https://nodejs.org/en/) junto al gestionador de paquetes npm. 
 
-## Build
+Angular requiere Node.js versión 8.x or 10.x.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Para comprobar la versión de Node.js y npm, ejecutar los siguientes comandos en la consola/terminal del ordenador:
 
-## Running unit tests
+    Comando para comprobar la versión de Node.js: node -v
+    Comando para comprobar la versión de npm: npm -v
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+A continuación, instalar Angular CLI con el siguiente comando:
 
-## Running end-to-end tests
+    npm install -g @angular/cli
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Después de esta instalación, hay que descargar las dependencias y módulos de Node (entre ellos, se encuentran los de Angular) para este proyecto.   
+Para ello se utiliza el siguiente comando:
 
-## Further help
+    npm install
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Finalizado todos prerrequisitos, se ejecuta el proyecto con el comando:
+
+    ng serve -o
+
+Automáticamente aparecerá el navegador con la siguiente dirección `http://localhost:4200/`, y si se realiza algún cambio en cualquier archivo    
+de la aplicación, se recargará inmediatamente.
+
+### PRUEBAS
+---
+
+Las pruebas que se pueden realizar son:
+
+* Entrar en la página para iniciar sesión, y sino eres socio, registrarte.
+* Una vez registrado y logueado:
+    * Acceder al listado de socios que haya en la base de datos desde el menú de navegación en la opción llamada "Socios".
+    * Editar ciertos datos del socio.
+    * Dar de baja a socios.
+    * Ver tus roles, nombre de usuario, token de acceso y cerrar sesión en la página de Home.
+
+Si no se ha iniciado sesión, no se puede realizar ninguno de los puntos descritos en el apartado de "Una vez registrado y logueado",   
+porque no está autorizado.
+
+Al estar en desarrollo, habrá cambios que irán siendo documentados y actualizados, entre ellos el diseño de la aplicación, validaciones, etc...,   
+ya que primero me centro en realizar y comprobar la funcionalidad del proyecto. 

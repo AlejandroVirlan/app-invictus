@@ -22,7 +22,7 @@ Este proyecto ha sido generado con [Angular CLI](https://github.com/angular/angu
 
 ### INSTRUCCIONES
 ---
-Antes de ejecutar el proyecto, realizar todos los pasos anteriores para el servidor [(API REST en Spring Framework 5)](https://github.com/angular/angular-cli/blob/master/README.md).   
+Antes de ejecutar el proyecto, realizar todos los pasos anteriores para el servidor [(API REST en Spring Framework 5)](https://github.com/AlejandroVirlan/spring-boot-invictus).   
 Una vez que se haya realizado todo en la parte del servidor, hay que asegurarse antes de empezar, de que hay que tener instalado   
 [Node.js](https://nodejs.org/en/) junto al gestionador de paquetes npm. 
 
